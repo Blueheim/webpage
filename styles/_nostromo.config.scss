@@ -1,0 +1,24 @@
+@charset 'utf-8';
+
+@import 'node_modules/nostromo-css/sass/helpers/variables';
+@import 'node_modules/nostromo-css/sass/helpers/theme';
+@import 'node_modules/nostromo-css/sass/helpers/functions';
+
+$primary: #3d405b;
+
+$grey-dark-3: #dddd;
+
+$myColors: (
+  'primary': $primary,
+  'primary-light': tint($primary, 20%),
+  'primary-dark': shade($primary, 20%),
+  'alert': #e4b363,
+  'grey-light-1': #808080,
+);
+
+$myFonts: (
+  'primary': 'Montserrat',
+);
+
+$colors: map-merge($colors, $myColors);
+$fonts: map-merge($fonts, $myFonts);

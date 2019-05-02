@@ -1,0 +1,142 @@
+import React from 'react';
+import Link from 'next/link';
+
+const Header = () => {
+  const handlerMouseOver = e => {
+    if (e.target.classList.contains('screen')) {
+      const screenElArray = Array.from(document.getElementsByClassName('screen'));
+      for (let el of screenElArray) {
+        el.classList.remove('reveal');
+      }
+      e.target.classList.add('reveal');
+    }
+  };
+
+  return (
+    <>
+      <header id="home-revealer" className="split" onMouseOver={handlerMouseOver}>
+        <div className="screen reveal">
+          <div className="title-box m-tx-primary m-fx-cl">
+            <h1>
+              <span className="title title-1 m-mg-sm-b">Xavier Deroeux</span>
+              <span className="title title-3 m-mg-xt-b">Ingénieur développeur</span>
+              <span className="title m-fs-md">
+                Passionné par le web <br />
+                et les nouvelles technologies
+              </span>
+            </h1>
+          </div>
+
+          {/* <div className="content">
+            <h2>Me</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur
+              adipisicing elit.
+            </p>
+          </div> */}
+        </div>
+        <div className="screen">
+          {/* <div className="content">
+            <h2>Front-end</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur
+              adipisicing elit.
+            </p>
+          </div> */}
+        </div>
+        <div className="screen">
+          {/* <div className="content">
+            <h2>Back-end</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur
+              adipisicing elit.
+            </p>
+          </div> */}
+        </div>
+      </header>
+
+      <style jsx>
+        {`
+          header {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            background: #000;
+          }
+
+          header .screen {
+            position: relative;
+            flex-basis: 5%;
+            display: flex;
+            overflow: hidden;
+            transition: 0.5s;
+            opacity: 0.2;
+          }
+
+          .reveal {
+            flex-basis: 90% !important;
+            opacity: 1 !important;
+          }
+
+          .title-box {
+            pointer-events: none;
+          }
+
+           {
+            /* header .screen .content {
+            position: absolute;
+            width: 400px;
+            height: auto;
+            background: #fff;
+            padding: 40px;
+            transform: translateX(100%);
+            transition: 0.8s;
+            text-align: justify;
+          }
+
+          header .screen:hover .content {
+            transform: translateX(0);
+            transition-delay: 0.5s;
+          }
+
+          header .screen:hover .content h2 {
+            text-transform: uppercase;
+            font-size: 30px;
+            color: red;
+          } */
+          }
+
+          header .screen:nth-child(1) {
+             {
+              /* background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+              url('/static/web-team.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center; */
+            }
+          }
+
+          header .screen:nth-child(2) {
+             {
+              /* background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+              url('/static/front-ux.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center; */
+            }
+          }
+          header .screen:nth-child(3) {
+             {
+              /* background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('/static/code.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center; */
+            }
+          }
+        `}
+      </style>
+    </>
+  );
+};
+
+export default Header;
