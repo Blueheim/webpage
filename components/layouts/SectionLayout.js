@@ -2,11 +2,11 @@ import React from 'react';
 import classNames from 'classnames';
 
 const SectionLayout = ({ children, id, className }) => {
-  const classes = classNames('js-scroll-section', className);
+  const classes = classNames('section js-scroll-section', className);
 
   return (
     <section id={id} data-scroll-section className={classes}>
-      {children}
+      <div className="section__content">{children}</div>
     </section>
   );
 };

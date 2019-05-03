@@ -22,3 +22,13 @@ $myFonts: (
 
 $colors: map-merge($colors, $myColors);
 $fonts: map-merge($fonts, $myFonts);
+
+:export {
+  color1: #ecca92;
+  color2: #e5b567;
+  color3: #dda03b;
+  color4: #c48622;
+  color5: #98681a;
+  //color6: #e4b363;
+  //color7: #8d6018;
+}

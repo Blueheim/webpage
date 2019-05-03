@@ -1,19 +1,5 @@
 import { select, selectAll, event } from 'd3-selection';
-import { interpolateNumber } from 'd3-interpolate';
-import { transition } from 'd3-transition';
-
-const scrollTween = targetPosition => {
-  return function() {
-    //Save current (starting position)
-    let currentPosition = window.pageYOffset || document.documentElement.scrollTop;
-    // Create interpolator from current to target position ( = current + relative top position of the element)
-    var i = interpolateNumber(currentPosition, currentPosition + targetPosition.top);
-    return function(t) {
-      // window.scrollTo(currentPosition, i(t));
-      window.scrollTo(0, i(t));
-    };
-  };
-};
+import { format } from 'd3-format';
 
 // Control click scrolling to element
 // Select all link starting by #
@@ -25,6 +11,8 @@ const setScroll = $elToTransform => {
     const windowSelection = select(this);
     const $window = windowSelection.node();
 
+    const handlerSelection = select('.js-scroll-handler');
+
     const contentWidth = $elToTransform.getBoundingClientRect().width;
     const clientWidth = document.body.clientWidth;
     //Scrollbar width
@@ -34,6 +22,10 @@ const setScroll = $elToTransform => {
     if (latestKnownScrollY > contentWidth - clientWidth) {
       latestKnownScrollY = contentWidth - clientWidth;
     }
+
+    let scaleValue = latestKnownScrollY / (contentWidth - clientWidth);
+
+    handlerSelection.style('transform', `scaleX(${format('.6f')(scaleValue)}`);
 
     elToTransformSelection.style('transform', `translate3d(${-latestKnownScrollY}px, 0px, 0px)`);
   });
