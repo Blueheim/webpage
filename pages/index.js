@@ -5,6 +5,7 @@ import StackSection from '../components/sections/StackSection';
 import DesignSection from '../components/sections/DesignSection';
 import HomeSection from '../components/sections/HomeSection';
 import PresentationSection from '../components/sections/PresentationSection';
+import ContactSection from '../components/sections/ContactSection';
 
 const Index = () => {
   return (
@@ -13,6 +14,7 @@ const Index = () => {
       <PresentationSection />
       <DesignSection />
       <StackSection />
+      <ContactSection />
     </BaseLayout>
   );
 };

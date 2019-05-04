@@ -10,8 +10,8 @@ const PresentationSection = () => {
       <div className="content-box m-tx-white m-fx m-fs-ty">
         <p>
           {' '}
-          Je m'appelle Xavier et je suis passionné par le web et les nouvelles technologies (blockchain, ia...). J'aime
-          prendre un bain quotidien dans les eaux turbulentes de l'écosystème JS.
+          Mon prénom est Xavier et je suis passionné par le web et les nouvelles technologies. J'aime prendre un bain
+          quotidien dans les eaux turbulentes de l'écosystème JS.
           <br />
           Mon principe est d'être un éternel étudiant en étant curieux des évolutions technologiques actuelles et
           futures dans une démarche d'apprentissage permanent.

@@ -3,6 +3,7 @@ import { from } from 'rxjs';
 import setScroll from '../../utils/scroll';
 import classNames from 'classnames';
 import ScrollHelper from '../shared/ScrollHelper';
+import Chatbot from '../shared/Chatbot';
 
 const ScrollLayout = ({ children, className }) => {
   const scrollContentRef = useRef();
@@ -37,6 +38,7 @@ const ScrollLayout = ({ children, className }) => {
       <div ref={scrollContentRef} data-scroll-content>
         {children}
       </div>
+      <Chatbot />
       <ScrollHelper />
     </div>
   );

@@ -10,7 +10,7 @@ const DesignSection = () => {
       <div className="content-box m-tx-white m-fx m-fs-ty">
         <p>
           Je porte un intérêt croissant à l'expérience utilisateur
-          <br /> enjeu capital pour se démarquer et obtenir un produit unique, adapté à l'utilisateur et avec une forte
+          <br /> enjeu capital pour se démarquer et obtenir un produit unique, adapté à l'utilisateur et ayant une forte
           identité. J'ai par exemple conçu ce site de présentation en essayant de respecter une tendance actuelle de
           l'UX qui est le strorytelling.
         </p>

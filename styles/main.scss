@@ -16,6 +16,8 @@
 
 @import '../components/layouts/BubbleChart';
 
+@import '../components/shared/Chatbot';
+
 // Responsive svg
 
 .svg-container {
@@ -67,4 +69,40 @@
       transform-origin: bottom left;
     }
   }
+}
+
+// Contact form
+
+.contact__email {
+}
+
+.contact__message {
+  resize: none;
+  height: 300px;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.control__error {
+  display: block;
+  width: 100%;
+  pointer-events: none;
+
+  &::after {
+    content: '';
+    width: 0;
+    height: 0;
+    color: color('invalid');
+    border-left: 12px solid currentColor;
+    border-bottom: 12px solid transparent;
+    border-top: 12px solid transparent;
+    position: absolute;
+    top: 5%;
+    left: 100%;
+    pointer-events: none;
+  }
+}
+
+.sent-image {
+  width: 50%;
 }

@@ -59,8 +59,8 @@ const StackSection = () => {
       </div>
       <div className="content-box m-tx-white m-fx m-fs-ty">
         <p>
-          Mon stack technique tourne principalement autour du Web et le langage de prédilection avec lequel je
-          m'épanouis est JavaScript. J'apprécis son utilisation en mode full stack.
+          Mon stack technique tourne principalement autour du Web et mon langage de prédilection est le JavaScript.
+          J'apprécis son utilisation en mode full stack.
         </p>
       </div>
       <div className="image-box">
