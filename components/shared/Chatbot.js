@@ -5,6 +5,7 @@ import { v4 as uuid } from 'uuid';
 import { exhaustMap, tap, filter, debounceTime, distinctUntilChanged, catchError, retry } from 'rxjs/operators';
 import httpObservable from 'simplehttpobservable';
 import getConfig from 'next/config';
+import classNames from 'classnames';
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -17,6 +18,7 @@ const Chatbot = () => {
   const messageInputRef = useRef();
   const messagesRef = useRef();
   const [messages, setMessages] = useState([]);
+  const [show, setShow] = useState(false);
 
   let _fetchFromClick$ = null;
   let _fetchFromEnter$ = null;
@@ -33,7 +35,7 @@ const Chatbot = () => {
 
   // On update messages
   useEffect(() => {
-    if (messages.length > 0) {
+    if (messages.length > 0 && document.getElementById('messages')) {
       autoScroll(document.getElementById('messages'));
     }
   }, [messages]);
@@ -110,17 +112,26 @@ const Chatbot = () => {
     $messages.scrollTop = $messages.scrollHeight - $messages.clientHeight;
   };
 
+  const handleCloseChatbot = () => {
+    setShow(false);
+  };
+
+  const handleShowChatbot = () => {
+    setShow(true);
+  };
+
   return (
     <>
-      <div className="chatbot m-rd-xt m-sw-xt-y">
+      <div className={classNames('chatbot m-rd-xt m-sw-xt-y', { 'm-vs-hn': !show })}>
         {/* header */}
         <div className="chatbot__header m-pd-xt m-primary m-fx-sb-c">
           <span>Chatbot</span>
-          <div className="close_cta m-fx-c-c">
-            {/* <svg class="btn icon svg-icon">
-            <use xlinkHref=""></use>
-          </svg> */}
-          </div>
+          <img
+            src="/static/images/close-icon.svg"
+            alt="close chatbot"
+            className="btn close-cta icon"
+            onClick={handleCloseChatbot}
+          />
         </div>
         {/* Messages */}
         <div ref={messagesRef} id="messages" className="message-box m-pd-xt-h m-pd-ty-b">
@@ -150,20 +161,23 @@ const Chatbot = () => {
               type="text"
               className="control__input m-tx-grey-dark-1 m-rd-xt-l m-bd-xt-primary m-pd-xt-h"
               maxLength="100"
-              placeholder="Your message"
+              placeholder="Message..."
             />
-            <button ref={sendButtonRef} className="btn m-primary m-pd-xt m-rd-xt-r">
-              Send
+            <button ref={sendButtonRef} className="send-cta btn m-primary m-pd-xt m-rd-xt-r m-ef-hv-bg-1">
+              <img src="/static/images/paperplane.svg" alt="Envoyer message chatbot" />
             </button>
           </div>
         </div>
       </div>
 
-      <button className="toggle-chat btn m-primary m-fx-c-c m-pd-xt m-rd-xx m-sw-xt-y m-op-0 m-ef-hv-bg-1 m-dp-no-small">
-        <svg className="btn icon svg-icon">
-          <use xlinkHref="../../static/images/noun_Robot_933458.svg" />
-        </svg>
-      </button>
+      {!show && (
+        <button
+          className="toggle-chat btn m-primary m-bd-xt-alert m-fx-c-c m-pd-xt m-rd-xx m-sw m-ef-hv-bg-1 m-dp-no-small"
+          onClick={handleShowChatbot}
+        >
+          <img src="/static/images/robot-icon.svg" alt="Toggle chatbot" />
+        </button>
+      )}
     </>
   );
 };

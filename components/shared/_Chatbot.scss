@@ -1,8 +1,8 @@
 .chatbot {
-  width: 50%;
+  width: 40vmin;
   position: fixed;
   bottom: 5%;
-  right: 5%;
+  left: 5%;
   height: 80%;
   background-color: white;
   display: flex;
@@ -10,12 +10,41 @@
   justify-content: space-between;
   z-index: 9000;
   overflow: hidden;
+
+  @include respond-to('medium') {
+    width: 30%;
+  }
+
+  .end {
+    float: left;
+    clear: both;
+  }
+
+  &__input {
+    flex: 0 0 50%;
+  }
+
+  &__header {
+    flex: 0 0 10%;
+
+    .close-cta {
+      height: 2rem;
+      width: 2rem;
+    }
+  }
+
+  &__footer {
+    .send-cta img {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
 }
 
 .toggle-chat {
   position: fixed;
   bottom: 2rem;
-  right: 2rem;
+  left: 2rem;
   width: 7rem;
   height: 7rem;
   z-index: 8888;

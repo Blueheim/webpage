@@ -39,7 +39,7 @@ const ContactSection = () => {
   const handleChangeCaptcha = value => {
     let recaptcha = '';
     if (!value) {
-      recaptcha = 'Veuillez confirmer votre humanité';
+      recaptcha = 'Please, confirm your humanity';
     }
     // update using previous state
     setErrors(errors => ({ ...errors, recaptcha: recaptcha }));
@@ -55,17 +55,17 @@ const ContactSection = () => {
     const email_reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     if (!email_reg.test(emailRef.current.value)) {
-      submitErrors.email = 'Veuillez renseigner un email valide';
+      submitErrors.email = 'A valid email is needed';
       valid = false;
     }
 
     if (!messageRef.current.value || messageRef.current.value.length > 300) {
-      submitErrors.message = 'Veuillez renseigner un message de moins 300 caractères';
+      submitErrors.message = 'A valid message with a maximum of 300 characters is needed';
       valid = false;
     }
 
     if (!recaptchaRef.current.getValue()) {
-      submitErrors.recaptcha = 'Veuillez confirmer votre humanité';
+      submitErrors.recaptcha = 'Please, confirm your humanity';
       valid = false;
     }
 
@@ -81,8 +81,8 @@ const ContactSection = () => {
   };
 
   return (
-    <SectionLayout id="contact" className="section-contact m-bg-gd-primary-r">
-      <div className="title-box m-bg-alert m-fx-cl-en-st">
+    <SectionLayout id="contact" className="section-contact m-bg-gd-primary-l">
+      <div data-trigger-anim="contact-title" className="title-box m-fx-cl-en-st">
         <h2 className="m-fs-xl m-tx-primary m-wt-900">Contact</h2>
       </div>
 
@@ -90,32 +90,28 @@ const ContactSection = () => {
         {!sent && (
           <form action="#" className="m-fx-cl-c-sh" onSubmit={handleSubmitForm}>
             {errors.global && <span className="m-invalid m-pd-xt-v">{errors.global}</span>}
-            <div className="control m-mg-ty-b m-tx-white m-fx-cl">
+            <div className="control m-mg-ty-b m-tx-primary m-fx-cl">
               <input
+                aria-label="Email"
                 ref={emailRef}
                 name="email"
                 type="email"
                 placeholder="email"
-                className="contact__email control__input m-pd-xt m-bd-ty-alert m-bg-tp m-tx-white m-rd-md-t"
+                className="contact__email control__input m-pd-xt m-tx-white m-bd-ty-alert-b m-bg-primary-light"
               />
-              {errors.email && (
-                <div className="control__error m-invalid m-ab-of-l m-pd-xt  m-rd-xt m-sw">{errors.email}</div>
-              )}
+              {errors.email && <div className="control__error m-invalid m-pd-xt m-mg-xt-t">{errors.email}</div>}
             </div>
-            <div className="control m-mg-ty-b m-tx-white m-fx-cl">
+            <div className="control m-mg-ty-b m-fx-cl">
               <textarea
+                aria-label="Message"
                 ref={messageRef}
                 name="message"
                 type="text"
                 maxLength="300"
                 placeholder="message"
-                className="contact__message control__input m-pd-xt m-bd-ty-alert m-bg-tp m-tx-white"
+                className="contact__message control__input m-pd-xt m-tx-white m-bd-ty-alert-b m-bg-primary-light"
               />
-              {errors.message && (
-                <div className="control__error m-invalid m-ab-of-l m-pd-xt m-mg-sm-t  m-rd-xt m-sw">
-                  {errors.message}
-                </div>
-              )}
+              {errors.message && <div className="control__error m-invalid m-pd-xt m-mg-xt-t">{errors.message}</div>}
             </div>
             <div className="control m-fx-c-c m-mg-md-b">
               <ReCAPTCHA
@@ -124,27 +120,21 @@ const ContactSection = () => {
                 size="normal"
                 onChange={handleChangeCaptcha}
               />
-              {errors.recaptcha && (
-                <div className="control__error m-invalid m-ab-of-l m-pd-xt m-mg-sm-t m-rd-xt m-sw">
-                  {errors.recaptcha}
-                </div>
-              )}
+              {errors.recaptcha && <div className="control__error m-invalid m-pd-xt m-mg-xt-t">{errors.recaptcha}</div>}
             </div>
 
-            <button className="btn m-rd-md-b m-alert m-pd-xt">Transmettre</button>
+            <button aria-label="Send" className="btn m-alert m-pd-xt">
+              Send
+            </button>
           </form>
         )}
 
         {sent && (
           <div className="sent-box m-tx-valid m-fx-cl-c-c">
-            <img src="../../static/images/rocket-icon.svg" alt="Message envoyé" className="sent-image" />
-            <p className="m-tx-white m-fs-ty m-mg-xt-t m-tx-c m-wt-700">Message transmis, merci de votre visite</p>
+            <img data-src="/static/images/rocket-icon.svg" alt="Message envoyé" className="sent-image" />
+            <p className="m-tx-white m-fs-ty m-mg-xt-t m-tx-c m-wt-700">Message sent, thank you for visiting</p>
           </div>
         )}
-        <p>Robot by Oksana Latysheva from the Noun Project</p>
-      </div>
-      <div className="image-box">
-        <img src="../../static/images/using-tablet.jpg" className="image" />
       </div>
     </SectionLayout>
   );

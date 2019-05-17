@@ -1,19 +1,24 @@
 import React, { useEffect } from 'react';
-import { Link } from '../routes';
+import Head from 'next/head';
 import BaseLayout from '../components/layouts/BaseLayout';
 import StackSection from '../components/sections/StackSection';
 import DesignSection from '../components/sections/DesignSection';
 import HomeSection from '../components/sections/HomeSection';
 import PresentationSection from '../components/sections/PresentationSection';
 import ContactSection from '../components/sections/ContactSection';
+import ProjectSection from '../components/sections/ProjectsSection';
 
 const Index = () => {
   return (
     <BaseLayout>
+      <Head>
+        <title>Xavier Deroeux - Full Stack Web Developer</title>
+      </Head>
       <HomeSection />
       <PresentationSection />
       <DesignSection />
       <StackSection />
+      <ProjectSection />
       <ContactSection />
     </BaseLayout>
   );

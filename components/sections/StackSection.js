@@ -54,17 +54,27 @@ const StackSection = () => {
 
   return (
     <SectionLayout id="stack" className="section-stack m-bg-gd-primary-l">
-      <div className="title-box m-bg-alert m-fx">
+      <div data-trigger-anim="stack-title" className="title-box m-fx">
         <h2 className="m-fs-xl m-tx-primary m-wt-900">Stack</h2>
       </div>
-      <div className="content-box m-tx-white m-fx m-fs-ty">
+      <div className="content-box m-tx-white m-fx-cl m-fs-ty">
         <p>
-          Mon stack technique tourne principalement autour du Web et mon langage de prédilection est le JavaScript.
-          J'apprécis son utilisation en mode full stack.
+          My technological stack mainly relates to the Web and my preferred language is JavaScript. I appreciate its use
+          in full stack mode.
+        </p>
+        <br />
+        <p>
+          Currently, my preferred technologies are: <br />
+          <br />
+          <span className="m-wt-900">React/Node/Express/MongoDB</span>.
         </p>
       </div>
       <div className="image-box">
-        <img src="../../static/images/typing-computer.jpg" className="image" />
+        <img
+          data-src="/static/images/typing-computer.jpg"
+          alt="Stack - People typing on a computer"
+          className="image"
+        />
       </div>
       <div className="chart-box m-fx-cl-c-c">
         <div id="stack-chart" className="stack-chart__container svg-container">
@@ -77,7 +87,7 @@ const StackSection = () => {
             xmlSpace="preserve"
           />
         </div>
-        <div className="button-list m-tx-white m-wd-100 m-fx-c-c" onClick={handleChangeAccessor}>
+        <div className="button-list m-tx-white m-wd-100 m-fx-c-c m-mg-ty-t" onClick={handleChangeAccessor}>
           <button
             data-index="0"
             className={classNames('btn m-mg-ty-r m-pd-xt-b btn-accessor active', { 'js-accessor': true })}
@@ -106,6 +116,14 @@ const StackSection = () => {
             OS
           </button>
         </div>
+      </div>
+      <div data-trigger-anim="stack-features" className="features-box m-tx-white m-fs-sm">
+        <ul className="m-fx-cl-c-c">
+          <li className="m-mg-xt-b">Front-end and back-end</li>
+          <li className="m-mg-xt-b">Automated workflow</li>
+          <li className="m-mg-xt-b">Version control</li>
+          <li className="m-mg-xt-b">Reactive programming</li>
+        </ul>
       </div>
     </SectionLayout>
   );

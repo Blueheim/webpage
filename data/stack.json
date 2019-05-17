@@ -32,6 +32,11 @@
         "Desc": "♕"
       },
       {
+        "Name": "Gatsby",
+        "Count": 1,
+        "Desc": ""
+      },
+      {
         "Name": "Vue",
         "Count": 2,
         "Desc": ""
@@ -81,6 +86,26 @@
         "Desc": "♕"
       },
       {
+        "Name": "Socket.io",
+        "Count": 2,
+        "Desc": ""
+      },
+      {
+        "Name": "GraphQL",
+        "Count": 1,
+        "Desc": ""
+      },
+      {
+        "Name": "Redis",
+        "Count": 1,
+        "Desc": ""
+      },
+      {
+        "Name": "PHP",
+        "Count": 1,
+        "Desc": ""
+      },
+      {
         "Name": "Oracle",
         "Count": 2,
         "Desc": ""
@@ -96,25 +121,10 @@
     "children": [
       {
         "Name": "Jest",
-        "Count": 2,
-        "Desc": ""
+        "Count": 3,
+        "Desc": "♕"
       },
-      { "Name": "Docker", "Count": 1, "Desc": "" },
-      { "Name": "AWS", "Count": 1, "Desc": "" }
-    ]
-  },
-  {
-    "children": [
-      {
-        "Name": "Jest",
-        "Count": 2,
-        "Desc": ""
-      },
-      {
-        "Name": "Enzyme",
-        "Count": 1,
-        "Desc": ""
-      }
+      { "Name": "Enzyme", "Count": 1, "Desc": "" }
     ]
   },
   {
@@ -122,10 +132,20 @@
       {
         "Name": "GIT",
         "Count": 2,
-        "Desc": ""
+        "Desc": "♕"
       },
       {
         "Name": "Docker",
+        "Count": 1,
+        "Desc": ""
+      },
+      {
+        "Name": "Heroku",
+        "Count": 1,
+        "Desc": "♕"
+      },
+      {
+        "Name": "CircleCI",
         "Count": 1,
         "Desc": ""
       },

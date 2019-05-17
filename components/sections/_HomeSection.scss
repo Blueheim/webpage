@@ -1,0 +1,47 @@
+@charset 'utf-8';
+
+// @import 'node_modules/nostromo-css/sass/helpers/variables';
+// @import 'node_modules/nostromo-css/sass/helpers/theme';
+// @import 'node_modules/nostromo-css/sass/helpers/functions';
+
+.home::before {
+  animation: no-transform 2s cubic-bezier(0, 0.5, 0, 1) forwards;
+  content: '';
+  background: gradient-linear(to right, transparentize(color('primary-light'), 0.9), color('primary-dark')),
+    url('/static/images/hero-image.jpg') no-repeat bottom;
+  background-size: cover;
+  content: '';
+  opacity: 0;
+  transform: translateX(-4rem);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.animate-pop-in {
+  animation: no-transform 0.6s cubic-bezier(0, 0.9, 0.3, 1.2) forwards;
+  opacity: 0;
+  transform: translateY(-4rem) scale(0.8);
+}
+
+.primary-title {
+  animation-delay: 0.8s;
+}
+
+.secondary-title {
+  animation-delay: 1s;
+}
+
+.typed-title {
+  animation-delay: 1.2s;
+}
+
+@keyframes no-transform {
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
