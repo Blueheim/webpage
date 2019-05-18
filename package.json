@@ -10,7 +10,8 @@
     "export": "npm run build && next export -o dist",
     "start:dev": "cross-env NODE_ENV=production node server/index.js",
     "start": "next start",
-    "heroku-postbuild": "npm run build"
+    "generate:gh-pages": "npm run export",
+    "deploy": "npm run generate:gh-pages && gh-pages -d dist --dotfiles=true"
   },
   "keywords": [],
   "author": "",
@@ -33,6 +34,7 @@
     "express-jwt": "^5.3.1",
     "fontfaceobserver": "^2.1.0",
     "formik": "^1.5.4",
+    "gh-pages": "^2.0.1",
     "gsap": "^2.1.2",
     "immutable": "^4.0.0-rc.12",
     "jsonwebtoken": "^8.5.1",

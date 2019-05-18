@@ -6,6 +6,7 @@ import ScrollHelper from '../shared/ScrollHelper';
 import Chatbot from '../shared/Chatbot';
 import ScrollIndicator from '../shared/ScrollIndicator';
 import FakeLoading from '../shared/FakeLoading';
+import { add } from '../../utils/optimizedResize';
 
 const ScrollLayout = ({ children, className }) => {
   const scrollContentRef = useRef();
@@ -13,6 +14,13 @@ const ScrollLayout = ({ children, className }) => {
   const classes = classNames('', className);
 
   useEffect(() => {
+    setPage();
+    add(() => {
+      setPage();
+    });
+  }, []);
+
+  const setPage = () => {
     const body = document.body;
 
     let offsetLeft = 0;
@@ -43,7 +51,7 @@ const ScrollLayout = ({ children, className }) => {
         setIsLoading(false);
       }
     );
-  }, []);
+  };
 
   return (
     <>

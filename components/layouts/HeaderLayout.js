@@ -18,8 +18,8 @@ const HeaderLayout = ({ children }) => {
 
             <ul className="nav__actions m-tx-up">
               <li className="nav__action m-mg-xt-r">
-                <Link href="/">
-                  <a>
+                <Link href="https://github.com/blueheim">
+                  <a title="My github" rel="noopener">
                     <img src="/static/images/github-icon.svg" alt="Github icon" className="social-icon" />
                   </a>
                 </Link>

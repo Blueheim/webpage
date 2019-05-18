@@ -39,6 +39,7 @@ class MyDocument extends Document {
           <meta name="theme-color" content="#ffffff" />
           <meta name="msapplication-config" content="/static/browserconfig.xml" />
           <meta httpEquiv="Content-Security-Policy" content="font-src 'self' https://fonts.gstatic.com;" />
+          <meta name="robots" content="noindex, nofollow" />
         </Head>
         <body className="js-loading">
           <Main />

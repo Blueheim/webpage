@@ -4,6 +4,7 @@ const FakeLoading = () => {
   return (
     <div className="fake-loading">
       <div className="loader" />
+      <div>LOADING...</div>
     </div>
   );
 };

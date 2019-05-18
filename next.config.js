@@ -10,23 +10,13 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BrotliPlugin = require('brotli-webpack-plugin');
 
-// module.exports = withFonts(
-//   withCSS(
-//     withSass({
-//       // Both server and client config
-//       publicRuntimeConfig: {
-//         mailerApi: process.env.MAILER_API,
-//         botApi: process.env.BOT_API,
-//       },
-//     })
-//   )
-// );
-
 module.exports = withPlugins([withFonts, withSass, withCSS], {
+  // Github pages configuration
+  //assetPrefix: process.env.NODE_ENV === 'production' ? '/{reponame}' : '',
   // Both server and client config
   publicRuntimeConfig: {
-    mailerApi: process.env.MAILER_API,
-    botApi: process.env.BOT_API,
+    mailerApi: process.env.MAILER_API || 'https://stark-savannah-63072.herokuapp.com',
+    botApi: process.env.BOT_API || 'https://secure-cove-36725.herokuapp.com',
   },
   exportPathMap: async function(defaultPathMap, { dev, dir, outDir, distDir, buildId }) {
     if (dev) {
