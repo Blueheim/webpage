@@ -10,8 +10,7 @@
     "export": "npm run build && next export -o dist",
     "start:dev": "cross-env NODE_ENV=production node server/index.js",
     "start": "next start",
-    "generate:gh-pages": "npm run export",
-    "deploy": "npm run generate:gh-pages && gh-pages -d dist --dotfiles=true"
+    "deploy": "gh-pages -d dist --dotfiles=true"
   },
   "keywords": [],
   "author": "",
